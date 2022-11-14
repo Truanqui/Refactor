@@ -1,27 +1,15 @@
-function returnRandomNumber() {
-  return Math.random();
+function processNumberByRandom(num, process) {
+  const randNum = Math.round(Math.random() * 100);
+  const processes = {
+    sum: `Seu número é ${randNum + num}!`,
+    subtract: `Seu número é ${randNum - num}!`,
+    divide: `Seu número é ${randNum / num}!`,
+    multiply: `Seu número é ${randNum * num}!`,
+  };
+  if (!Object.keys(processes).includes(process)) {
+    return processes.sum;
+  }
+  return processes[process];
 }
 
-function sumToRandomNumber(num) {
-  const numberToSum = returnRandomNumber();
-
-  return `Seu número é ${Math.round(numberToSum * 100) + num}!`;
-}
-
-function subtractRandomNumber(num) {
-  const numberToSubtract = returnRandomNumber();
-
-  return `Seu número é ${Math.round(numberToSubtract * 100) - num}!`;
-}
-
-function multiplyToRandomNumber(num) {
-  const numberToMultiply = returnRandomNumber();
-
-  return `Seu número é ${Math.round(numberToMultiply * 100) * num}!`;
-}
-
-function divideRandomNumber(num) {
-  const numberToDivide = returnRandomNumber();
-
-  return `Seu número é ${Math.round(numberToDivide * 100) / num}!`;
-}
+console.log(processNumberByRandom(12, "wefbwe"));
